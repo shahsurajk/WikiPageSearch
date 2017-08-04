@@ -1,0 +1,5 @@
+<resources>
+    <string name="font_regular">fonts/Times_Normal.ttf</string>
+    <string name="font_bold">fonts/Times_Bold.ttf</string>
+    <string name="app_name">Wiki Page Search</string>
+</resources>
