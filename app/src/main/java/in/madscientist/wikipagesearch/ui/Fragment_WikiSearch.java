@@ -58,7 +58,7 @@ public class Fragment_WikiSearch extends Fragment {
         recyclerView.setAdapter(adapter_wikiSearch);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
-    private void makeSuggestionRequest(String searchString){
+    private void makeSuggestionRequest(final String searchString){
         if (isAdded() && Utils.isOnline(getActivity())){
         searchProgressBar.setVisibility(View.VISIBLE);
         RetrofitManager.getInstance().create(APIManager.class)
@@ -68,6 +68,7 @@ public class Fragment_WikiSearch extends Fragment {
                 pages.clear();
                 pages.addAll(response.body().getQuery().getPages());
                 searchProgressBar.setVisibility(View.GONE);
+                adapter_wikiSearch.setSearchedString(searchString);
                 adapter_wikiSearch.notifyDataSetChanged();
             }
 
