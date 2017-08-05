@@ -6,7 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="in.madscientist.wikipagesearch.ui.Activity_Main">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize">
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            app:title="Wiki Page Search"
+            android:layout_height="match_parent"></android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
     <FrameLayout
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </FrameLayout>

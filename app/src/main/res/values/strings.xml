@@ -1,5 +1,7 @@
 <resources>
     <string name="font_regular">fonts/Times_Normal.ttf</string>
     <string name="font_bold">fonts/Times_Bold.ttf</string>
+    <string name="font_awesome">fonts/FontAwesome.ttf</string>
     <string name="app_name">Wiki Page Search</string>
+    <string name="ERR_INTERNET_DISCONNECTED">No internet connection found</string>
 </resources>
