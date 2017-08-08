@@ -66,7 +66,9 @@ public class Fragment_WikiSearch extends Fragment {
             @Override
             public void onResponse(Call<WikiSearch> call, Response<WikiSearch> response) {
                 pages.clear();
-                pages.addAll(response.body().getQuery().getPages());
+                if (response.isSuccessful() && response.body()!=null && response.body().getQuery()!=null){
+                    pages.addAll(response.body().getQuery().getPages());
+                }
                 searchProgressBar.setVisibility(View.GONE);
                 adapter_wikiSearch.setSearchedString(searchString);
                 adapter_wikiSearch.notifyDataSetChanged();
@@ -95,11 +97,7 @@ public class Fragment_WikiSearch extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length()>1){
-                    try {
-                        makeSuggestionRequest(URLEncoder.encode(charSequence.toString(),"UTF-8"));
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
+                    makeSuggestionRequest(charSequence.toString().trim());
                 }
             }
 
